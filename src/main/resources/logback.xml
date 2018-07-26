@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<jmxConfigurator />
+	<property name="SYS_LOG_DIR" value="./word" />
+	<property name="LOG_FILE" value="sw.log" />
+	<property name="fileLayoutPattern"
+			  value="%-20(%d{yyyyMMdd_HH:mm:ss.SSS} [%thread] [%-4relative]) [%level] %msg%n" />
+
+	<appender name="LOG_ROLLING" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${SYS_LOG_DIR}/${LOG_FILE}</file>
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>INFO</level>
+			<onMatch>ACCEPT</onMatch>
+			<onMismatch>DENY</onMismatch>
+		</filter>
+
+		<rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+			<!-- rollover daily -->
+			<fileNamePattern>${SYS_LOG_DIR}/${LOG_FILE}_%d{yyyy-MM-dd}_%i.txt</fileNamePattern>
+			<!-- each file should be at most 100MB, keep 60 days worth of history, but at most 20GB -->
+			<maxFileSize>10MB</maxFileSize>
+			<maxHistory>7</maxHistory>
+			<totalSizeCap>1GB</totalSizeCap>
+		</rollingPolicy>
+
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<pattern>${fileLayoutPattern}</pattern>
+		</encoder>
+
+	</appender>
+
+	<appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+		<!-- 典型的日志pattern -->
+		<encoder>
+			<pattern>%date{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<!-- project default level -->
+	<logger name="com.sky" level="INFO" />
+
+	<!-- root -->
+	<root level="INFO">
+		<appender-ref ref="console" />
+		<appender-ref ref="LOG_ROLLING" /> <!-- 文件输出 -->
+	</root>
+</configuration>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.transino.lms.modules.comm.mapper.CommTradeCtrlMapper">
+    <sql id="commTradeCtrlColumns">
+        aid, trade_code, io, field_name, ffield, ftype, fprecision, fscale, tfield, ttype, tprecision, tscale, bnullable, data_default, param
+    </sql>
+
+    <insert id="insert" parameterType="CommTradeCtrl">
+        INSERT INTO comm_trade_ctrl (
+            aid, trade_code, io, field_name, ffield, ftype, fprecision, fscale, tfield,
+            ttype, tprecision, tscale, bnullable, data_default, param
+        ) VALUES (
+            #{aid,jdbcType=VARCHAR}, #{tradeCode,jdbcType=VARCHAR}, #{io,jdbcType=CHAR},
+            #{fieldName,jdbcType=VARCHAR}, #{ffield,jdbcType=VARCHAR}, #{ftype,jdbcType=CHAR},
+            #{fprecision,jdbcType=DECIMAL}, #{fscale,jdbcType=DECIMAL}, #{tfield,jdbcType=VARCHAR},
+            #{ttype,jdbcType=CHAR}, #{tprecision,jdbcType=DECIMAL}, #{tscale,jdbcType=DECIMAL},
+            #{bnullable,jdbcType=CHAR}, #{dataDefault,jdbcType=VARCHAR}, #{param,jdbcType=VARCHAR}
+        )
+    </insert>
+
+    <select id="selectByTradeCodeAndIo" resultType="CommTradeCtrl">
+        SELECT
+        <include refid="commTradeCtrlColumns"/>
+        FROM comm_trade_ctrl
+        WHERE trade_code = #{tradeCode,jdbcType=VARCHAR}
+        AND io = #{io, jdbcType=CHAR}
+    </select>
+</mapper>

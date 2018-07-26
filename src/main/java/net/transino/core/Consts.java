@@ -1,0 +1,85 @@
+package net.transino.core;
+
+/**
+ * @author lee
+ * @ver 5.0
+ */
+public interface Consts {
+    String ENCODING = "UTF-8";
+    String CFG_COMP_PATH = "compPath";
+    String CFG_ARCHIVE_PATH = "archivePath";
+    String MODE_QUERY = "query";
+    String MODE_SEARCH = "search";
+    String MODE_INSERT = "insert";
+    String MODE_UPDATE = "update";
+    String MODE_DELETE = "delete";
+    String ADMINISTRATOR = "0000";
+    String PERSONAL_INFO = "key_for_personal_info";
+    String TAB_DATA_JSON = "key_for_tab_data";
+    String RESOURCE_DATA_JSON = "key_for_resource_data";
+    String OPTIONS_MAP = "key_for_options_map";
+    String BEAN_ACTION_EXCEPTINO = "beanActionException";
+    String EXPORT_EXCEL_TABLE = "key_for_export_excel_table";
+    String EXPORT_EXCEL_DATA = "key_for_export_excel_data";
+    String NEW_LINE = System.getProperty("line.separator");
+    String FILE_SEPARATOR = System.getProperty("file.separator");
+    String PATH_SEPARATOR = System.getProperty("path.separator");
+    String APPLICATION_JSON_VALUE = "application/json";
+    String APPLICATION_JSON_UTF8_VALUE = "application/json;charset=UTF-8";
+    String AMPERSAND = "&";
+    String AT = "@";
+    String ASTERISK = "*";
+    String STAR = "*";
+    String BACK_SLASH = "\\";
+    String COLON = ":";
+    String COMMA = ",";
+    String DASH = "-";
+    String DOLLAR = "$";
+    String DOT = ".";
+    String DOTDOT = "..";
+    String DOT_CLASS = ".class";
+    String DOT_JAVA = ".java";
+    String EMPTY = "";
+    String EQUALS = "=";
+    String SLASH = "/";
+    String HASH = "#";
+    String HAT = "^";
+    String DOLLAR_LEFT_BRACE = "${";
+    String LEFT_BRACE = "{";
+    String LEFT_BRACKET = "(";
+    String LEFT_CHEVRON = "<";
+    String LEFT_SQ_BRACKET = "[";
+    String PERCENT = "%";
+    String PIPE = "|";
+    String PLUS = "+";
+    String QUESTION_MARK = "?";
+    String EXCLAMATION_MARK = "!";
+    String DOUBLE_QUOTE = "\"";
+    String RIGHT_BRACE = "}";
+    String RIGHT_BRACKET = ")";
+    String RIGHT_CHEVRON = ">";
+    String RIGHT_SQ_BRACKET = "]";
+    String SEMICOLON = ";";
+    String SINGLE_QUOTE = "\'";
+    String BACKTICK = "`";
+    String SPACE = " ";
+    String TILDA = "~";
+    String UNDERSCORE = "_";
+    String ON = "on";
+    String OFF = "off";
+    String TRUE = "true";
+    String FALSE = "false";
+    String YES = "yes";
+    String NO = "no";
+    String Y = "y";
+    String N = "n";
+    String RETURN = "\r";
+    String TAB = "\t";
+    String NEWLINE = "\n";
+    String CRLF = "\r\n";
+    String HTML_NBSP = "&nbsp;";
+    String HTML_AMP = "&amp";
+    String HTML_QUOTE = "&quot;";
+    String HTML_LT = "&lt;";
+    String HTML_GT = "&gt;";
+}

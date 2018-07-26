@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--<bean id="dataSource" class="org.apache.tomcat.jdbc.pool.DataSource" destroy-method="close">-->
+        <!--&lt;!&ndash; Connection Info &ndash;&gt;-->
+        <!--<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />-->
+        <!--<property name="url" value="jdbc:oracle:thin:@11.6.8.13:1521:orcl" />-->
+        <!--<property name="username" value="lms" />-->
+        <!--<property name="password" value="meiyou" />-->
+
+        <!--&lt;!&ndash; Connection Pooling Info &ndash;&gt;-->
+        <!--<property name="maxActive" value="10" />-->
+        <!--<property name="maxIdle" value="5" />-->
+        <!--<property name="minIdle" value="0" />-->
+        <!--<property name="defaultAutoCommit" value="false" />-->
+    <!--</bean>-->
+
+    <!--&lt;!&ndash; MyBatis配置 &ndash;&gt;-->
+    <!--<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">-->
+        <!--<property name="dataSource" ref="dataSource" />-->
+        <!--&lt;!&ndash; 自动扫描entity目录, 省掉Configuration.xml里的手工配置 &ndash;&gt;-->
+        <!--<property name="typeAliasesPackage" value="net.transino.lms.modules.comm.entity"/>-->
+        <!--&lt;!&ndash; 显式指定Mapper文件位置 &ndash;&gt;-->
+        <!--<property name="mapperLocations" value="classpath:net/transino/lms/modules/**/*Mapper.xml" />-->
+    <!--</bean>-->
+
+    <!--&lt;!&ndash; 配置SqlSessionTemplate &ndash;&gt;-->
+    <!--<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">-->
+        <!--<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory" />-->
+    <!--</bean>-->
+
+    <!--&lt;!&ndash; 配置mybatis mapper接口 &ndash;&gt;-->
+    <!--<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">-->
+        <!--<property name="basePackage" value="net.transino.lms.modules.**.mapper"/>-->
+        <!--<property name="sqlSessionTemplateBeanName" value="sqlSessionTemplate"/>-->
+    <!--</bean>-->
+
+
+    <bean id= "client" class="net.transino.lms.modules.comm.client.SocketClient">
+        <!--<property name="host" value="127.0.0.1"/>-->
+        <!--<property name="port" value="8899"/>-->
+        <!--<property name="host" value="11.6.8.15"/>-->
+        <!--<property name="port" value="55004"/>-->
+        <!--<property name="groupParent" value="1"/>-->
+    </bean>
+
+    <beans>
+        <bean id="test_config" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+            <property name="location">
+                <value>classpath:application.properties</value>
+            </property>
+        </bean>
+    </beans>
+</beans>

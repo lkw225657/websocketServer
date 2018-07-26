@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="net.transino.lms.modules.comm.mapper.CommTradeTxtMapper">
+    <sql id="commTradeTxtColumns">
+        aid, trade_code, batch, io, field_name, field, type, precision, scale, param, odr
+    </sql>
+
+    <select id="selectByTradeCodeAndBatchAndIo" resultType="CommTradeTxt">
+        SELECT
+        <include refid="commTradeTxtColumns"/>
+        FROM comm_trade_txt
+        WHERE trade_code = #{tradeCode,jdbcType=VARCHAR}
+        AND batch = #{batch,jdbcType=INTEGER}
+        AND io = #{io, jdbcType=CHAR}
+        ORDER BY odr
+    </select>
+</mapper>
